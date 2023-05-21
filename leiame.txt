@@ -1,0 +1,20 @@
+Seja countF a função recursiva que realiza a contagem de símbolos F, sua função relação de recorrência será:
+
+countF(string) = {
+  0, se string é vazia == '\0'
+  1 + countF(string + 1), se string[0] é 'F'
+  countF(string + 1), caso contraŕio, ou seja, != de 'F' e '\0'
+}
+
+
+
+
+
+
+Andei pesquisando por bibliotecas que já geravam fractal para facilitar o trabalho, porém encontrei pouca
+coisa, me deparei com alguns sites supeitos que tinham algumas bibliotecas com raras avaliações.
+
+Após investir um tempo considerável na pesquisa, eu decidi dar um passo para trás e usar uma bibliteca
+famosa e que passou no teste do tempo, o nome da biblioteca é a Simple DirectMedia Layer (SDL). Você
+pode encontrar mais sobre ela aqui, mas basicamente é uma biblioteca escrita na linguagem C que geralmente anda
+em conjunto com a biblioteca gráfica OpenGL.
