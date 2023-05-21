@@ -1,38 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-char* allow_only_f_math_sings(char* input) {
-  char* result;
-  unsigned int i = 0;
-  unsigned int not_allowed_char_length = 0; 
-  unsigned int input_length = strlen(input);
-  
-  for (i = 0; i < input_length; i++) {
-    if (input[i] != 'F' && input[i] != '+' && input[i] != '-') {
-      not_allowed_char_length++;
-    }
-  }
-
-  result = (char*)malloc(input_length - not_allowed_char_length  + 1);
-
-  if (result == NULL) {
-    printf("Ocorreu um erro durante a alocação de memória da string para "
-           "mostrar o resultado");
-    return NULL;
-  }
-
-  unsigned j = 0;
-  for (i = 0; i < input_length; i++) {
-    if (input[i] == 'F' ||  input[i] == '+' || input[i] == '-') {
-      result[j] = input[i];
-      j++;
-    }
-  }
-
-  result[j] = '\0';
-  return result;
-}
 
 char* replace_characters(const char* input, const char** characters,
                          const char** replacements,
@@ -57,7 +26,6 @@ char* replace_characters(const char* input, const char** characters,
       result_length++;
     }
   }
-  printf("%ld length\n", result_length);
 
   result = (char*)malloc(result_length + 1);
 
@@ -91,23 +59,34 @@ char* replace_characters(const char* input, const char** characters,
 
 int main() {
   int iterator;
-  char axiom[] = "F";
-  char *str;
-  char *t = axiom;
+  char axiom[100], *str, rule[100];
   const char *characters[] = {"F"};
-  const char *replecements[] = {"F-F+F+FF-F-F+F"};
+  const char **replacements;
 
-  printf("Defina a quantidade de iterações: ");
+  printf("Defina o axioma: ");
+  scanf("%s", axiom);
+
+  printf("\nDefina a regra: ");
+  scanf("%s", rule);
+
+  printf("\nDefina a quantidade de iterações: ");
   scanf("%d", &iterator);
 
+  char *t = axiom;
+
+  replacements = malloc(sizeof(const char*));
+  *replacements = malloc(strlen(rule) + 1);
+  strcpy((char*)*replacements, rule);
+
   for (int i = 0; i < iterator; i++) {
-    str = replace_characters(t, characters, replecements, 1);
+    str = replace_characters(t, characters, replacements, 1);
+    printf("%s\n", str);
     t = str;
   }
 
-  char *allowed = allow_only_f_math_sings(str);
-  printf("%s\n", str);
-  printf("%s", allowed);
+  free((char*)*replacements);
+  free(replacements);
+
 
   return 0;
 }

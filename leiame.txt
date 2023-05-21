@@ -1,12 +1,8 @@
-Seja countF a função recursiva que realiza a contagem de símbolos F, sua função relação de recorrência será:
+Seja countF a função recursiva que realiza a contagem de símbolos F, sua relação de recorrência será:
 
-countF(string) = {
-  0, se string é vazia == '\0'
-  1 + countF(string + 1), se string[0] é 'F'
-  countF(string + 1), caso contraŕio, ou seja, != de 'F' e '\0'
-}
-
-
+Onda quadrada de von koch
+  T(n) = 8 ^^n
+  F(n) = 6F(n-1) + 8
 
 
 
