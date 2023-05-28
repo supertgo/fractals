@@ -4,7 +4,11 @@ Onda quadrada de von koch
   T(n) = 8 ^^n
   F(n) = 6F(n-1) + 8
 
+Peano
+T(1) = 8
+T(n) = 9(n - 1) + 8
 
+S(n) = 9 * S(n-1) + 12
 
 
 Andei pesquisando por bibliotecas que já geravam fractal para facilitar o trabalho, porém encontrei pouca

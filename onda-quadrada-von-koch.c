@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,7 +7,7 @@ char* replace_characters(const char* input, const char** characters,
                          unsigned int num_replacements) {
   char* result;
   unsigned int i, j;
-  unsigned long int result_length = strlen(input);
+  unsigned long int result_length = 1;
   const char* match;
   
   for (i = 0; input[i] != '\0'; i++) {
@@ -58,13 +57,16 @@ char* replace_characters(const char* input, const char** characters,
 }
 
 int main() {
-  int iterator;
+  int iterator, angle;
   char axiom[100], *str, rule[100];
   const char *characters[] = {"F"};
   const char **replacements;
 
   printf("Defina o axioma: ");
   scanf("%s", axiom);
+
+  printf("\nDefina o angulo: ");
+  scanf("%d", &angle);
 
   printf("\nDefina a regra: ");
   scanf("%s", rule);
@@ -78,15 +80,27 @@ int main() {
   *replacements = malloc(strlen(rule) + 1);
   strcpy((char*)*replacements, rule);
 
+  FILE *file = fopen("thiagor-onda-quadrada.txt", "w");
+ 
+  if (file == NULL) {
+    printf("Erro ao abrir o arquivo thiagor-onda-quadrada.txt\n");
+    return 1;
+  }
+
+  fprintf(file, "Axioma: %s\n", axiom);
+  fprintf(file, "Angulo dado em graus: %d\n", angle);
+  fprintf(file, "Regra %s\n", rule);
+  fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
+
   for (int i = 0; i < iterator; i++) {
     str = replace_characters(t, characters, replacements, 1);
-    printf("%s\n", str);
+    fprintf(file, "Sequência de caracteres do %dº estágio: %s\n", i + 1, str);
+    fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
     t = str;
   }
 
   free((char*)*replacements);
   free(replacements);
-
 
   return 0;
 }
