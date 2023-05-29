@@ -1,7 +1,7 @@
 Axioma: X
 Angulo dado em graus: 90
-X -> Regra do X: XFYFX+F+YFXFY-F-XFYFX
-Y -> Regra do Y: YFXFY-F-XFYFX+F+YFXFY
+Regra do X -> XFYFX+F+YFXFY-F-XFYFX
+Regra do Y -> YFXFY-F-XFYFX+F+YFXFY
 ---------------------------------------------------------------------------------
 Sequência de caracteres do 1º estágio: FF+F+FF-F-FF
 ---------------------------------------------------------------------------------

@@ -15,18 +15,18 @@ void draw_lines(SDL_Renderer *renderer, int start_x, int start_y, const char *pa
     int line_length = 5;
     
     if (pattern_length < 100) {
-      line_length = 10;
+      line_length = 30;
     } else if (pattern_length < 1000) {
       line_length = 10;  
     } else {
-      line_length = 10;
+      line_length = 5;
     }
 
     for (unsigned int i = 0; i < pattern_length; i++) {
         char c = pattern[i];
         if (c == 'F') {
-            int new_x = x + (int)(line_length * sin(current_angle));
-            int new_y = y - (int)(line_length * cos(current_angle));
+            int new_x = x + (int)(line_length * cos(current_angle));
+            int new_y = y - (int)(line_length * sin(current_angle));
             SDL_RenderDrawLine(renderer, x, y, new_x, new_y);
             x = new_x;
             y = new_y;
@@ -41,10 +41,10 @@ void draw_lines(SDL_Renderer *renderer, int start_x, int start_y, const char *pa
 int main(int argc, char *argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
 
-    SDL_Window *window = SDL_CreateWindow("koch Thiago Roberto", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Window *window = SDL_CreateWindow("Thiago Roberto Fractal", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    const char *pattern = "-F--F-";
-    double angle = 2.0 * M_PI / 3.0;
+    const char *pattern = "-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F--+F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F--+F-F--+F+F-++F-F-++F+F-++F-F--+F+F--+F-F-++F+F-++F-F--+F+F-++F-F-++F+F-";
+    double angle = M_PI / 2.0;
 
     bool quit = false;
     SDL_Event e;
@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
       SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
       SDL_RenderClear(renderer);
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-      draw_lines(renderer, 100, WINDOW_HEIGHT / 2, pattern, angle);
+      draw_lines(renderer, 500, WINDOW_HEIGHT / 2, pattern, angle);
       SDL_RenderPresent(renderer);
     }
 

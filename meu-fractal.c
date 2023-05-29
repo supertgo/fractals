@@ -88,20 +88,11 @@ char* replace_characters(const char* input, const char** characters,
   return result;
 }
 
-char **create_rule_array(const char *ruleX, const char *ruleY) {
-  char **rules = malloc(2 * sizeof(char *));
-  rules[0] = malloc(strlen(ruleX) + 1);
-  rules[1] = malloc(strlen(ruleY) + 1);
-  strcpy(rules[0], ruleX);
-  strcpy(rules[1], ruleY);
-  return rules;
-}
-
 int main() {
   int iterator, angle;
-  char axiom[100], *str, ruleX[100], ruleY[100], *result;
-  const char *characters[] = {"X", "Y"};
-  char **replacements;
+  char axiom[100], *str, *result;
+  const char *characters[] = {"T", "R"};
+  const char *replacements[] = {"T-RF-", "+FT+R"};
 
   printf("Defina o axioma: ");
   scanf("%s", axiom);
@@ -109,45 +100,32 @@ int main() {
   printf("\nDefina o angulo: ");
   scanf("%d", &angle);
 
-  printf("\nDefina a regra do X: ");
-  scanf("%s", ruleX);
-
-  printf("\nDefina a regra do Y: ");
-  scanf("%s", ruleY);
-
   printf("\nDefina a quantidade de iterações: ");
   scanf("%d", &iterator);
 
   char *t = axiom;
-  replacements = create_rule_array(ruleX, ruleY);
 
-  FILE *file = fopen("thiagor-peano-saida.txt", "w");
+  FILE *file = fopen("thiagor-meu-fractal-saida.txt", "w");
  
   if (file == NULL) {
-    printf("Erro ao abrir o arquivo thiagor-peano-saida.txt\n");
+    printf("Erro ao abrir o arquivo thiagor-meu-fractal-saida.txt\n");
     return 1;
   }
 
   fprintf(file, "Axioma: %s\n", axiom);
   fprintf(file, "Angulo dado em graus: %d\n", angle);
-  fprintf(file, "Regra do X -> %s\n", ruleX);
-  fprintf(file, "Regra do Y -> %s\n", ruleY);
+  fprintf(file, "Regra do X -> %s\n", "X-YF-");
+  fprintf(file, "Regra do Y -> %s\n", "+FX+Y");
   fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
 
   for (int i = 0; i < iterator; i++) {
-    str = replace_characters(t, characters, (const char **)replacements, 2);
+    str = replace_characters(t, characters, replacements, 2);
     result = allow_only_f_math_sings(str);
     fprintf(file, "Sequência de caracteres do %dº estágio: %s\n", i + 1, result);
     fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
     t = str;
   }
   
-  for (int i = 0; i < 2; i++) {
-    free((void *)replacements[i]);
-  }
-
-  free(replacements);
-
   return 0;
 }
 
