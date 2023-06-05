@@ -57,22 +57,23 @@ char* replace_characters(const char* input, const char** characters,
 }
 
 int main() {
-  int iterator, angle;
+  int iterator = 4, number; 
+  float angle; 
   char axiom[100], *str, rule[100];
   const char *characters[] = {"F"};
   const char **replacements;
+
+  printf("Defina número do fractal correspondente: ");
+  scanf("%d", &number);
 
   printf("Defina o axioma: ");
   scanf("%s", axiom);
 
   printf("\nDefina o angulo: ");
-  scanf("%d", &angle);
+  scanf("%f", &angle);
 
   printf("\nDefina a regra: ");
   scanf("%s", rule);
-
-  printf("\nDefina a quantidade de iterações: ");
-  scanf("%d", &iterator);
 
   char *t = axiom;
 
@@ -87,8 +88,9 @@ int main() {
     return 1;
   }
 
+  fprintf(file, "Numero do fractal correspondente: %d\n", number);
   fprintf(file, "Axioma: %s\n", axiom);
-  fprintf(file, "Angulo dado em graus: %d\n", angle);
+  fprintf(file, "Angulo dado em graus: %f\n", angle);
   fprintf(file, "Regra %s\n", rule);
   fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
 

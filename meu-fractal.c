@@ -89,19 +89,17 @@ char* replace_characters(const char* input, const char** characters,
 }
 
 int main() {
-  int iterator, angle;
+  int iterator = 4;
+  float angle;
   char axiom[100], *str, *result;
   const char *characters[] = {"T", "R"};
-  const char *replacements[] = {"T-RF-", "+FT+R"};
+  const char *replacements[] = {"FRT", "FR-FR+FR+FR-FR"};
 
-  printf("Defina o axioma: ");
+  printf("Defina o axioma Coloque apenas T: ");
   scanf("%s", axiom);
 
   printf("\nDefina o angulo: ");
-  scanf("%d", &angle);
-
-  printf("\nDefina a quantidade de iterações: ");
-  scanf("%d", &iterator);
+  scanf("%f", &angle);
 
   char *t = axiom;
 
@@ -113,15 +111,15 @@ int main() {
   }
 
   fprintf(file, "Axioma: %s\n", axiom);
-  fprintf(file, "Angulo dado em graus: %d\n", angle);
-  fprintf(file, "Regra do X -> %s\n", "X-YF-");
-  fprintf(file, "Regra do Y -> %s\n", "+FX+Y");
+  fprintf(file, "Angulo dado em graus: %.2f\n", angle);
+  fprintf(file, "Regra do T -> %s\n", "FRT");
+  fprintf(file, "Regra do R -> %s\n", "FR-FR+FR+FR-FR");
   fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
 
   for (int i = 0; i < iterator; i++) {
     str = replace_characters(t, characters, replacements, 2);
     result = allow_only_f_math_sings(str);
-    fprintf(file, "Sequência de caracteres do %dº estágio: %s\n", i + 1, result);
+    fprintf(file, "Sequência de caracteres do %dº estágio:\n%s\n", i + 1, result);
     fprintf(file, "%s\n", "---------------------------------------------------------------------------------");
     t = str;
   }

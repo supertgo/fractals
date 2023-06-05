@@ -98,10 +98,13 @@ char **create_rule_array(const char *ruleX, const char *ruleY) {
 }
 
 int main() {
-  int iterator, angle;
+  int iterator = 4, angle, number;
   char axiom[100], *str, ruleX[100], ruleY[100], *result;
   const char *characters[] = {"X", "Y"};
   char **replacements;
+
+  printf("Defina número do fractal correspondente: ");
+  scanf("%d", &number);
 
   printf("Defina o axioma: ");
   scanf("%s", axiom);
@@ -115,9 +118,6 @@ int main() {
   printf("\nDefina a regra do Y: ");
   scanf("%s", ruleY);
 
-  printf("\nDefina a quantidade de iterações: ");
-  scanf("%d", &iterator);
-
   char *t = axiom;
   replacements = create_rule_array(ruleX, ruleY);
 
@@ -128,6 +128,7 @@ int main() {
     return 1;
   }
 
+  fprintf(file, "Numero do fractal correspondente: %d\n", number);
   fprintf(file, "Axioma: %s\n", axiom);
   fprintf(file, "Angulo dado em graus: %d\n", angle);
   fprintf(file, "Regra do X -> %s\n", ruleX);

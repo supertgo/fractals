@@ -1,9 +1,17 @@
 Axioma: T
-Angulo dado em graus: 90
-Regra do X -> X-YF-
-Regra do Y -> +FX+Y
+Angulo dado em graus: 90.00
+Regra do T -> FRT
+Regra do R -> FR-FR+FR+FR-FR
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 1º estágio: -F-
+Sequência de caracteres do 1º estágio:
+F
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 2º estágio: -F--+F+F-
+Sequência de caracteres do 2º estágio:
+FF-F+F+F-FF
+---------------------------------------------------------------------------------
+Sequência de caracteres do 3º estágio:
+FFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-FFF-F+F+F-FF
+---------------------------------------------------------------------------------
+Sequência de caracteres do 4º estágio:
+FFFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-F-FFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-F+FFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-F+FFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-F-FFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-FFFF-F+F+F-F-FF-F+F+F-F+FF-F+F+F-F+FF-F+F+F-F-FF-F+F+F-FFF-F+F+F-FF
 ---------------------------------------------------------------------------------

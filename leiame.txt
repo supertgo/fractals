@@ -1,6 +1,6 @@
 Estrutura do projeto:
 
-. Thiago-Robeto-SI-2022066051
+. ThiagoRobertoSI-2022066051
 ├── docs/
 │  └── [Thiago Roberto - TP MD.docx]
 │  └── [Thiago Roberto - TP MD.odt]
@@ -14,19 +14,22 @@ Padrão de saídas:
 
 Axioma: axioma definido pelo usuário na maioria dos programas
 Angulo dado em graus: angulo em graus definido pelo usuário
-Regra regra definido pelo usuário
+Numero do fractal correspondente: literalmente o numero para identificação
+Regra: regra definida pelo usuário
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 1º estágio: XXXXXXXXXX 
+Sequência de caracteres do 1º estágio: 
+XXXXXXXXXX 
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 2º estágio: XXXXXXXXXXXXXXXXXX 
+Sequência de caracteres do 2º estágio:
+XXXXXXXXXXXXXXXXXX 
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 3º estágio: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Sequência de caracteres do 3º estágio:
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ---------------------------------------------------------------------------------
-Sequência de caracteres do 4º estágio: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
+Sequência de caracteres do 4º estágio:
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
 ---------------------------------------------------------------------------------
-
 Onde "X" representa uma string com "F", "+" e "-"
-
 .......................................................................................................
 Instruções para executar os arquivos
 
@@ -36,7 +39,7 @@ Obs:
     Suponha que a regra para o caractere X seja ABC, então X -> ABC. Porém, no programa não é esperado que
     o usuário digite o caracterer para substituição e nem a seta (->), o usuário deve apenas digitar a subs-
     tituição, o que no exeplo seria apenas ABC.
-- Para o meu fractal, eu não peço para que o usurário digite as regras de substituição pois sou eu que a defino
+- Para o meu fractal, eu não peço para que o usuário digite as regras de substituição pois sou eu que a defino
 - Estou supondo que o compilador usado será o GCC e que o ambiente usado será UNIX. Caso não seja nenhum dos dois
   o comando que eu passei pode não funcionar, mas não deve ser muito diferente.
 
@@ -46,10 +49,10 @@ Execute:
   gcc onda-quadrada-von-koch.c -o onda.exe && ./onda.exe
 
 O programa irá pedir para que você: 
+ - Defina o numero do fractal correspondente 
  - Defina o axioma 
  - Defina o angulo 
  - Defina a regra 
- - Defina a quantidade de iterações 
 
 O arquivo retornado será:
 thiagor-onda-quadrada.txt
@@ -60,11 +63,11 @@ Execute:
 gcc peano.c -o peano.exe && ./peano.exe
 
 O programa irá pedir para que você: 
+ - Defina o numero do fractal correspondente 
  - Defina o axioma 
  - Defina o angulo 
  - Defina a regra do X
  - Defina a regra do Y
- - Defina a quantidade de iterações 
 
 O arquivo retornado será:
 thiagor-peano-saida.txt
@@ -75,9 +78,8 @@ Execute:
 gcc meu-fractal.c -o meu-fractal.exe && ./meu-fractal.exe 
 
 O programa irá pedir para que você: 
- - Defina o axioma 
+ - Defina o axioma (Coloque "T") 
  - Defina o angulo 
- - Defina a quantidade de iterações 
 
 É importante que você coloque o axioma como T, as letras para o meu fractal são T e R, as iniciais do meu nome e 
 sobrenome
